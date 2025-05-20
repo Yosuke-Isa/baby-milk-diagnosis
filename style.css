@@ -1,0 +1,159 @@
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #222;
+}
+
+.screen {
+  display: none;
+  padding: 2rem 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.active {
+  display: block;
+}
+
+h1, h2, h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.illustration {
+  max-width: 250px;
+  height: auto;
+  margin: 1rem auto;
+}
+
+.options, .options-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+
+.option-button, .options-row label {
+  background-color: #f6f6f6;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.option-button:hover,
+.option-button:focus,
+.options-row label:hover {
+  border-color: #000;
+  background-color: #fff;
+}
+
+.option-button.selected {
+  border-color: #000;
+  font-weight: bold;
+  background-color: #fff;
+}
+
+.button {
+  background-color: #000;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.button:hover {
+  background-color: #333;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loading-icon {
+  width: 80px;
+  height: 80px;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.result-item {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.result-item.top-ranking {
+  background-color: #fff8e1;
+  border: 2px solid #fbc02d;
+}
+
+.rank-label {
+  font-size: 0.9rem;
+  color: #f57f17;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.buy-main-button {
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.2s ease;
+}
+
+.buy-main-button:hover {
+  background-color: #333;
+}
+
+@media (max-width: 480px) {
+  .options, .options-row {
+    flex-direction: column;
+  }
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.options-row label input {
+  margin-right: 0.5rem;
+}

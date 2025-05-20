@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>赤ちゃんミルク診断</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 開始画面 -->
+  <div id="start-screen" class="screen active">
+    <img src="./images/ChatGPT Image Q1.png" alt="start-image" class="illustration" />
+    <h1>たった1分で<br>ぴったりのミルクを診断</h1>
+    <p>簡単な質問に答えるだけで、<br>あなたの赤ちゃんに合ったミルクをご提案します。</p>
+    <button class="button" id="start-button">診断スタート</button>
+  </div>
+
+  <!-- 基本情報入力画面 -->
+  <div id="basic-info-screen" class="screen">
+    <h2>まずは教えてください</h2>
+    <form id="basic-info-form">
+      <div class="form-group">
+        <label>現在の状況を教えてください</label>
+        <div class="options-row">
+          <label><input type="radio" name="situation" value="0" required> はじめてミルクを選ぶ</label>
+          <label><input type="radio" name="situation" value="1"> 今の銘柄を切り替えたい</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>お子さまの月齢は？</label>
+        <div class="options-row">
+          <label><input type="radio" name="age" value="0" required> 0–1か月</label>
+          <label><input type="radio" name="age" value="1"> 2–3か月</label>
+          <label><input type="radio" name="age" value="2"> 4–5か月</label>
+          <label><input type="radio" name="age" value="3"> 6か月以上</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>授乳スタイルは？</label>
+        <div class="options-row">
+          <label><input type="radio" name="style" value="0" required> 完全母乳</label>
+          <label><input type="radio" name="style" value="1"> 母乳多め</label>
+          <label><input type="radio" name="style" value="2"> 半々</label>
+          <label><input type="radio" name="style" value="3"> ミルク多め</label>
+          <label><input type="radio" name="style" value="4"> 完全ミルク</label>
+        </div>
+      </div>
+      <button type="submit" class="button">次へ</button>
+    </form>
+  </div>
+
+  <!-- 質問画面 -->
+  <div id="question-screen" class="screen">
+    <div id="question-text" class="question"></div>
+    <div><img id="question-image" src="" alt="イラスト" class="illustration" /></div>
+    <div id="options" class="options"></div>
+  </div>
+
+  <!-- 診断中画面 -->
+  <div id="loading-screen" class="screen">
+    <div class="loading-content">
+      <img src="https://cdn-icons-png.flaticon.com/512/2983/2983787.png" alt="loading" class="loading-icon">
+      <p><strong>あなたにぴったりのミルクを分析中...</strong></p>
+      <p>数あるミルクからおすすめを選んでいます。</p>
+    </div>
+  </div>
+
+  <!-- 結果画面 -->
+  <div id="result-screen" class="screen">
+    <h2>診断結果</h2>
+    <div id="result-list"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
