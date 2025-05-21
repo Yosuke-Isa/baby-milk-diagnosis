@@ -73,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function () {
     "icareo-pure-sukoyaka": "https://akachanmilk.base.shop/items/108330055"
   };
 
-
   document.getElementById('start-button').addEventListener('click', () => {
     showScreen('basic-info-screen');
   });
@@ -88,6 +87,14 @@ document.addEventListener('DOMContentLoaded', function () {
     answers.length = 0;
     showScreen('question-screen');
     showQuestion();
+
+    document.getElementById('back-button').addEventListener('click', () => {
+      if (current > 0) {
+        answers.pop();
+        current--;
+        showQuestion();
+      }
+    });
   });
 
   function showQuestion() {
@@ -97,6 +104,8 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('options').innerHTML = q.options.map((opt, i) =>
       `<button class="option-button" onclick="selectOption(${i})">${opt}</button>`
     ).join('');
+    const backBtn = document.getElementById('back-button');
+    if (backBtn) backBtn.style.display = current > 0 ? 'block' : 'none';
   }
 
   window.selectOption = function (index) {
@@ -180,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <h3>${top3[2].name}</h3>
         <p>${top3[2].feature}</p>
       </div>
-      <div class="result-action" style="text-align: center; margin-top: 2rem;">
+      <div class="result-action-fixed">
         <a href="${purchaseUrl}" class="buy-main-button">お試しセットを購入する</a>
       </div>`;
 
