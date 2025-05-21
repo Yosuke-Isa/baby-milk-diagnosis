@@ -168,3 +168,9 @@ p {
   padding: 1rem 0;
   margin-top: 1rem;
 }
+/* 月齢だけ 2列×2行 に整列 */
+.two-col .options-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
