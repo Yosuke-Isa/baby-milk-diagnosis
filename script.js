@@ -9,8 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
     { q: "吐き戻しの頻度は？", options: ["なし", "たまに", "よくある"] },
     { q: "1 缶あたりのご予算は？", options: ["〜2,000円", "〜3,000円", "こだわらない"] },
     { q: "母乳に近い味・成分を重視しますか？", options: ["とても重視", "やや重視", "気にしない"] },
-    { q: "計量せずにすぐ作れる形状を重視しますか？", options: ["とても重視", "やや重視", "気にしない"] },
-    { q: "甘さの好みは？", options: ["甘め", "さっぱり", "わからない"] }
+    { q: "液体ミルクの取り扱いがあることを重視しますか？", options: ["とても重視", "やや重視", "気にしない"] },
+    { q: "甘さの好みは？", options: ["甘め", "さっぱり", "わからない"] },
+    { q: "産院での使用実績を重視しますか？", options: ["とても重視", "やや重視", "気にしない"] }
   ];
 
   const imageList = [
@@ -20,7 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
     "./images/ChatGPT Image Q4.png",
     "./images/ChatGPT Image Q5.png",
     "./images/ChatGPT Image Q6.png",
-    "./images/ChatGPT Image Q7.png"
+    "./images/ChatGPT Image Q7.png",
+    "./images/ChatGPT Image Q8.png"
   ];
 
   const milkList = [
@@ -71,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
     "icareo-pure-sukoyaka": "https://akachanmilk.base.shop/items/108330055"
   };
 
+
   document.getElementById('start-button').addEventListener('click', () => {
     showScreen('basic-info-screen');
   });
@@ -116,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function calculateResult() {
     milkList.forEach(m => m.score = 0);
-    const [mainConcern, stool, reflux, budget, breast, cube, taste] = answers;
+    const [mainConcern, stool, reflux, budget, breast, liquid, taste, hospital] = answers;
 
     if (mainConcern === 0) { addScore('icareo',1); addScore('hohoemi',1); addScore('sukoyaka',2); }
     if (mainConcern === 1) { addScore('hagukumi',1); addScore('eakachan',1); addScore('icareo',1); }
@@ -140,11 +143,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const map = {hohoemi:3, icareo:3, hagukumi:2, sukoyaka:2, pure:2, eakachan:2, haihai:1};
     Object.entries(map).forEach(([id, val]) => addScore(id, val * factor));
 
-    if (cube === 0) addScore('hohoemi', 2);
-    if (cube === 1) addScore('hohoemi', 1);
+    if (liquid === 0) {
+      addScore('hohoemi', 2); addScore('icareo', 2); addScore('hagukumi', 1);
+    } else if (liquid === 1) {
+      addScore('hohoemi', 1); addScore('icareo', 1);
+    }
 
     if (taste === 0) ['hohoemi','eakachan','pure','haihai'].forEach(id => addScore(id,1));
     if (taste === 1) ['hagukumi','sukoyaka','icareo'].forEach(id => addScore(id,1));
+
+    if (hospital === 0) {
+      addScore('hohoemi', 2); addScore('eakachan', 2); addScore('sukoyaka', 2); addScore('hagukumi', 1);
+    } else if (hospital === 1) {
+      addScore('hohoemi', 1); addScore('eakachan', 1); addScore('sukoyaka', 1); addScore('hagukumi', 1);
+    }
 
     milkList.forEach(m => m.score += Math.random() * 0.009);
 
