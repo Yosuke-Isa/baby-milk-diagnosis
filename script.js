@@ -15,14 +15,14 @@ document.addEventListener('DOMContentLoaded', function () {
   ];
 
   const imageList = [
-    "./images/ChatGPT Image Q1_1.png",
-    "./images/ChatGPT Image Q2_1.png",
-    "./images/ChatGPT Image Q3_1.png",
-    "./images/ChatGPT Image Q4_1.png",
-    "./images/ChatGPT Image Q5_1.png",
-    "./images/ChatGPT Image Q6_1.png",
-    "./images/ChatGPT Image Q7_1.png",
-    "./images/ChatGPT Image Q8_1.png"
+    "./images/ChatGPT Image Q1_2.png",
+    "./images/ChatGPT Image Q2_2.png",
+    "./images/ChatGPT Image Q3_2.png",
+    "./images/ChatGPT Image Q4_2.png",
+    "./images/ChatGPT Image Q5_2.png",
+    "./images/ChatGPT Image Q6_2.png",
+    "./images/ChatGPT Image Q7_2.png",
+    "./images/ChatGPT Image Q8_2.png"
   ];
 
   const milkList = [
