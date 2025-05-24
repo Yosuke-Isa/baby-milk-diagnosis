@@ -1,1 +1,1 @@
-# baby-milk-diagnosis
+# milk-diagnosis
